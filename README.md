@@ -14,7 +14,7 @@ It is a simple app that merges PDF files in given directory. For now, it works o
 > python merge.py /sample/path/to/pdf/files
 > 
 ## TODO
-* handle filenames passed as arguments
+* make it OOP
 
 ## Status
 Project is: _in progress_
