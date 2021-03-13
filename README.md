@@ -12,9 +12,9 @@ It is a simple app that merges PDF files in given directory. For now, it works o
 
 ## Usage
 1. Pass only path to merge ALL pdf files in there
-   > python merge.py /sample/path/to/pdf/files
+   > python merge.py /path/to/pdf/files
 2. Pass path and filenames in there to merge only them
-   > python merge.py /sample/path/to/pdf/files file1.pdf file2.pdf
+   > python merge.py /path/to/pdf/files file1.pdf file2.pdf
 > 
 ## TODO
 * make it OOP
