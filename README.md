@@ -11,7 +11,10 @@ It is a simple app that merges PDF files in given directory. For now, it works o
     > pip install PyPDF2==1.26.0
 
 ## Usage
-> python merge.py /sample/path/to/pdf/files
+1. Pass only path to merge ALL pdf files in there
+   > python merge.py /sample/path/to/pdf/files
+2. Pass path and filenames in there to merge only them
+   > python merge.py /sample/path/to/pdf/files file1.pdf file2.pdf
 > 
 ## TODO
 * make it OOP
