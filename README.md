@@ -1,5 +1,6 @@
 ## General info
-It is a simple app that merges PDF files in given directory. For now, it works only on Linux
+It is a simple app that merges PDF files in given directory.  
+Tested only on Linux
 
 ## Technologies
 * Python 3.9
