@@ -7,9 +7,9 @@ Tested only on Linux
 * PyPDF2 1.26.0
 
 ## Install
-1. Clone repository or download file merge.py
-2. Install PyPDF2
-    > pip install PyPDF2==1.26.0
+1. Clone repository
+2. Install requirements
+   > pip install -r requirements.txt
 
 ## Usage
 1. Pass only path to merge ALL pdf files in there
