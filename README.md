@@ -1,5 +1,5 @@
 ## General info
-It is a simple app that merges PDF files in given directory.  
+It is a simple console app that merges PDF files in given directory.  
 Tested only on Linux
 
 ## Technologies
@@ -16,9 +16,9 @@ Tested only on Linux
    > python merge.py /path/to/pdf/files
 2. Pass path and filenames in there to merge only them
    > python merge.py /path/to/pdf/files file1.pdf file2.pdf
-> 
 ## TODO
-* make it OOP
+* output path
+* print help
 
 ## Status
 Project is: _in progress_
