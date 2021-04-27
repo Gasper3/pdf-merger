@@ -14,7 +14,7 @@ Tested only on Linux
 ## Usage
 1. Pass only path to merge ALL pdf files in there
    > python merge.py /path/to/pdf/files
-2. Pass path and filenames in there to merge only them
+2. Pass path and filenames to merge only them
    > python merge.py /path/to/pdf/files file1.pdf file2.pdf
 ## TODO
 * output path
