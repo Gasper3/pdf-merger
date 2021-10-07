@@ -5,10 +5,11 @@ import os
 
 
 class Merger:
-    def __init__(self, path, pdf_files):
+    def __init__(self, args):
         self.pdfWriter = PyPDF2.PdfFileWriter()
-        self.path = path
-        self.pdf_files = pdf_files
+        self.path = args.path
+        self.pdf_files = args.files
+        self.output_path = args.output
 
     def merge_files(self):
         try:

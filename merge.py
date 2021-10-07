@@ -1,19 +1,15 @@
-import sys
+import argparse
 from app.PDFMerger import Merger
 
 def main():
-    arguments = sys.argv[1:]
-    if not arguments:
-        print('There is no path passed to program')
-        exit(1)
+    parser = argparse.ArgumentParser(description="Merge .pdf files")
+    parser.add_argument("-o", "--output", help="Path where merged file will be saved", type=str)
+    parser.add_argument("-f", "--files", help="Merge only these files", type=str, metavar="name", nargs="+")
+    parser.add_argument('path', help="Path to pdf files", type=str)
 
-    path = arguments[0]
-    if not path.endswith('/'):
-        path += '/'
+    args = parser.parse_args()
 
-    pdfFilesArg = sys.argv[2:]
-
-    Merger(path, pdfFilesArg).merge_files()
+    Merger(args).merge_files()
 
 if __name__ == "__main__":
     main()
