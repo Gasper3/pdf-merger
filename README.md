@@ -16,6 +16,8 @@ Tested only on Linux
    > python merge.py /path/to/pdf/files
 2. Pass path and filenames to merge only them
    > python merge.py /path/to/pdf/files file1.pdf file2.pdf
+3. You can also pass file names without extension
+   > python merge.py /path/to/pdf/files file1 file2
 ## TODO
 * output path
 * print help
