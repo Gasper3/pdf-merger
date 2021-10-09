@@ -7,11 +7,14 @@ import os
 class Merger:
     def __init__(self, args):
         self.pdfWriter = PyPDF2.PdfFileWriter()
-        self.path = args.path
-        self.pdf_files = args.files
-        self.output_path = args.output
+        self.path: str = args.path
+        self.pdf_files: list[str] = args.files
+        self.output_path: str = args.output or self.path
 
     def merge_files(self):
+        if not self.path.endswith("/"):
+            self.path += "/"
+
         try:
             for filename in self._get_files():
                 if not filename.endswith(".pdf"):
@@ -27,7 +30,7 @@ class Merger:
             exit(1)
 
         filename = datetime.now().strftime('%Y-%m-%d_%H%M%S')
-        pdf_output = open(self.path + f'{filename}.pdf', 'wb')
+        pdf_output = open(self.output_path + f'{filename}.pdf', 'wb')
         self.pdfWriter.write(pdf_output)
         pdf_output.close()
 
