@@ -49,9 +49,13 @@ class Merger:
 
 
     def _validate_args(self):
+        if not self.path.endswith("/"):
+            self.path += "/"
+
+        if not self.output_path.endswith("/"):
+            self.output_path += "/"
+
         for path in [self.path, self.output_path]:
-            if not path.endswith("/"):
-                path += "/"
             if not os.path.exists(path):
                 print(f"Path: {path} not found")
                 exit(1)
