@@ -19,8 +19,8 @@ Tested only on Linux
 3. You can also pass output path
    > python merge.py /path/to/pdf/files -f file1 file2 -o /path/to/output
 ## TODO
-* create own class to parse arguments that extends ArgumentParser
 * tests
+* refactor and use pathlib
 
 ## Status
 Project is: _in progress_
