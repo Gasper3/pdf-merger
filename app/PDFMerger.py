@@ -7,12 +7,14 @@ import exceptions
 
 
 class Merger:
-    def __init__(self, args):
-        path = Path(args.path)
+    def __init__(self, path: Path | str, pdf_files: list[str], output: Path | str):
         self.pdfWriter = PyPDF2.PdfFileWriter()
-        self.path: Path = path
-        self.pdf_files: list[str] = args.files
-        self.output_path: Path = Path(args.output) or path
+
+        self.path: Path = Path(path) if isinstance(path, str) else path
+        self.pdf_files: list[str] = pdf_files
+        self.output_path: Path = self._parse_output(output)
+
+        self.merged_file_name: str = ""
 
     def merge_files(self):
         self._validate()
@@ -41,6 +43,7 @@ class Merger:
 
     def _write_merged_files(self):
         filename = datetime.now().strftime('%Y-%m-%d_%H%M%S_merged')
+        self.merged_file_name = f"{filename}.pdf"
         pdf_output = open(self.output_path.joinpath(f"{filename}.pdf"), 'wb')
         self.pdfWriter.write(pdf_output)
         pdf_output.close()
@@ -50,3 +53,8 @@ class Merger:
             raise exceptions.PathNotExistsError(self.path)
         if not self.output_path.exists():
             self.output_path.mkdir()
+
+    def _parse_output(self, output_path) -> Path:
+        if output_path is None:
+            return self.path
+        return Path(output_path) if isinstance(output_path, str) else output_path

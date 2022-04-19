@@ -23,7 +23,7 @@ def main():
     args = parser.parse_args()
 
     try:
-        Merger(args).merge_files()
+        Merger(args.path, args.files, args.output).merge_files()
     except exceptions.PathNotExistsError as e:
         logger.error(e)
         print("Provided path does not exist" if not is_debug else e)
