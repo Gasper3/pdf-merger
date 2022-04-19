@@ -11,3 +11,11 @@ def create_args(path: Path = None, pdf_files=None, output: Path = None):
         "pdf_files": pdf_files,
         "output": Path(output) if output is not None else None
     }
+
+
+def get_contents_names(path: Path):
+    result = []
+    for item in path.iterdir():
+        result.append(item.name)
+
+    return result
