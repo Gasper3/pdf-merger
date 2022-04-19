@@ -1,5 +1,5 @@
 # General info
-It is a simple console app that merges PDF files in given directory.
+It is a simple CLI app that merges PDF files in given directory.
 
 # Technologies
 * Python 3.10
