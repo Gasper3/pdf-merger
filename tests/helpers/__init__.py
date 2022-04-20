@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from .remove_created_items import remove_created_files
+from PyPDF2 import PdfFileReader
 
 
 def create_args(path: Path = None, pdf_files=None, output: Path = None):
@@ -19,3 +20,13 @@ def get_contents_names(path: Path):
         result.append(item.name)
 
     return result
+
+
+def check_merged_file(pdf_file):
+    expected_pages_content = ["Strona 1", "Strona 2", "Strona 3", "Page1", "Page2", "Page3"]
+
+    reader = PdfFileReader(pdf_file)
+
+    for i, page in enumerate(reader.pages):
+        content = page.extractText()
+        assert content.find(expected_pages_content[i]) != -1
