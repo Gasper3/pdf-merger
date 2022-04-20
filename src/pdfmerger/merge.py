@@ -36,7 +36,3 @@ def main():
     except Exception as e:
         logger.error(e)
         print("Error occured" if not is_debug else e)
-
-
-# if __name__ == "__main__":
-#     main()
