@@ -26,9 +26,6 @@ It is a simple CLI app that merges PDF files in given directory.
    python merge.py /path/to/pdf/files -f file1 file2 -o /path/to/output
    ```
 
-# TODO
-* tests - check if content of merged file is correct
-
 # Status
 Project is: _in progress_
 
