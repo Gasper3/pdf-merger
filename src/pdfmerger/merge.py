@@ -3,8 +3,8 @@ import logging
 import os
 from pathlib import Path
 
-import exceptions
-from app.PDFMerger import Merger
+from exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
+from .PDFMerger import Merger
 
 is_debug = os.getenv("MERGER_DEBUG")
 logger = logging.Logger(__name__, level=logging.DEBUG if is_debug else logging.ERROR)
@@ -24,10 +24,10 @@ def main():
 
     try:
         Merger(args.path, args.files, args.output).merge_files()
-    except exceptions.PathNotExistsError as e:
+    except PathNotExistsError as e:
         logger.error(e)
         print("Provided path does not exist" if not is_debug else e)
-    except exceptions.FilesNotFoundInDirectoryError as e:
+    except FilesNotFoundInDirectoryError as e:
         logger.error(e)
         print("Files not found" if not is_debug else e)
     except FileNotFoundError as e:
@@ -38,5 +38,5 @@ def main():
         print("Error occured" if not is_debug else e)
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pdf-merger"
+name = "pdfmerger"
 version = "0.1.0"
 description = "CLI app that merges PDF files"
 authors = ["Gasper3 <trzecik65@gmail.com>"]
@@ -14,3 +14,6 @@ pytest = "^7.1.1"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pdfmerge = 'pdfmerger.merge:main'
