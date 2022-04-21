@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 from .exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
-from .PDFMerger import Merger
+from .merger import Merger
 
 is_debug = os.getenv("MERGER_DEBUG")
 # logger = logging.Logger(__name__, level=logging.DEBUG if is_debug else logging.ERROR)
@@ -14,7 +14,7 @@ is_debug = os.getenv("MERGER_DEBUG")
 # logger.addHandler(file_handler)
 
 
-def main():
+def run():
     parser = argparse.ArgumentParser(description="Merge .pdf files")
     parser.add_argument("-o", "--output", help="Path where merged file will be saved", type=str)
     parser.add_argument("-f", "--files", help="Merge only these files", type=str, metavar="name", nargs="+")
@@ -22,8 +22,10 @@ def main():
 
     args = parser.parse_args()
 
+    merger = Merger(args.path, args.files, args.output)
+
     try:
-        Merger(args.path, args.files, args.output).merge_files()
+        merger.merge_files()
     except PathNotExistsError as e:
         # logger.error(e)
         print("Provided path does not exist" if not is_debug else e)
@@ -36,3 +38,5 @@ def main():
     except Exception as e:
         # logger.error(e)
         print("Error occured" if not is_debug else e)
+    else:
+        print(f"Files merged into: {merger.merged_file_name}")

@@ -21,4 +21,4 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-pdfmerge = 'pdfmerge2.merge:main'
+pdfmerge = 'pdfmerge2.app:run'
