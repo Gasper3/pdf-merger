@@ -1,4 +1,4 @@
-from src.pdfmerger.PDFMerger import Merger
+from src.pdfmerge2.PDFMerger import Merger
 from .helpers import create_args, get_contents_names, check_merged_file
 
 

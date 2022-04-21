@@ -3,7 +3,7 @@ from pathlib import Path
 
 import PyPDF2
 
-from exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
+from .exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
 
 
 class Merger:

@@ -3,15 +3,15 @@ import logging
 import os
 from pathlib import Path
 
-from exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
+from .exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
 from .PDFMerger import Merger
 
 is_debug = os.getenv("MERGER_DEBUG")
-logger = logging.Logger(__name__, level=logging.DEBUG if is_debug else logging.ERROR)
-log_formatter = logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s")
-file_handler = logging.FileHandler(Path("log/app.log"), mode='a' if not is_debug else 'w')
-file_handler.setFormatter(log_formatter)
-logger.addHandler(file_handler)
+# logger = logging.Logger(__name__, level=logging.DEBUG if is_debug else logging.ERROR)
+# log_formatter = logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s")
+# file_handler = logging.FileHandler(Path("log/app.log"), mode='a' if not is_debug else 'w')
+# file_handler.setFormatter(log_formatter)
+# logger.addHandler(file_handler)
 
 
 def main():
