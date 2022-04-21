@@ -1,8 +1,13 @@
 [tool.poetry]
-name = "pdfmerger"
+name = "pdfmerge2"
 version = "0.1.0"
 description = "CLI app that merges PDF files"
 authors = ["Gasper3 <trzecik65@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/Gasper3/pdf-merger"
+repository = "https://github.com/Gasper3/pdf-merger"
+keywords = ["pdf", "merge", "pdfmerge", "3.10"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -16,4 +21,4 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-pdfmerge = 'pdfmerger.merge:main'
+pdfmerge = 'pdfmerge2.merge:main'
