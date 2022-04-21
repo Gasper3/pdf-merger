@@ -25,14 +25,14 @@ def main():
     try:
         Merger(args.path, args.files, args.output).merge_files()
     except PathNotExistsError as e:
-        logger.error(e)
+        # logger.error(e)
         print("Provided path does not exist" if not is_debug else e)
     except FilesNotFoundInDirectoryError as e:
-        logger.error(e)
+        # logger.error(e)
         print("Files not found" if not is_debug else e)
     except FileNotFoundError as e:
-        logger.error(e)
+        # logger.error(e)
         print("File not found" if not is_debug else e)
     except Exception as e:
-        logger.error(e)
+        # logger.error(e)
         print("Error occured" if not is_debug else e)
