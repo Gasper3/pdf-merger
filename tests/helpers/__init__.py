@@ -1,7 +1,8 @@
 from pathlib import Path
 
-from .remove_created_items import remove_created_files
 from PyPDF2 import PdfFileReader
+
+from .remove_created_items import remove_created_files
 
 
 def create_args(path: Path = None, pdf_files=None, output: Path = None):
