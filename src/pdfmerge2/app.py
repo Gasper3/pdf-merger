@@ -1,7 +1,5 @@
 import argparse
-import logging
 import os
-from pathlib import Path
 
 from .exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
 from .merger import Merger
