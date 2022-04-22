@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pdfmerge2"
-version = "0.1.0"
+version = "0.1.2"
 description = "CLI app that merges PDF files"
 authors = ["Gasper3 <trzecik65@gmail.com>"]
 license = "MIT"
