@@ -1,5 +1,5 @@
-from app.PDFMerger import Merger
-from .helpers import create_args, get_contents_names, check_merged_file, remove_created_files
+from src.pdfmerge2.merger import Merger
+from .helpers import create_args, get_contents_names, check_merged_file
 
 
 def test_merge_from_path(resources_path):

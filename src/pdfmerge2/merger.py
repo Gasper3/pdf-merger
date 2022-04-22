@@ -3,7 +3,7 @@ from pathlib import Path
 
 import PyPDF2
 
-import exceptions
+from .exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
 
 
 class Merger:
@@ -37,7 +37,7 @@ class Merger:
         pdf_files.sort(key=lambda item: item.name.lower())
 
         if not pdf_files:
-            raise exceptions.FilesNotFoundInDirectoryError(self.path.name)
+            raise FilesNotFoundInDirectoryError(self.path.name)
 
         return pdf_files
 
@@ -50,7 +50,7 @@ class Merger:
 
     def _validate(self):
         if not self.path.exists():
-            raise exceptions.PathNotExistsError(self.path)
+            raise PathNotExistsError(self.path)
         if not self.output_path.exists():
             self.output_path.mkdir()
 

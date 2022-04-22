@@ -1,33 +1,40 @@
 # General info
-It is a simple CLI app that merges PDF files in given directory.
+It is a simple CLI app that merges PDF files in given directory
 
 # Technologies
 * Python 3.10
 * PyPDF2 1.26.0
 
 # Install
+## Using pip
+```
+pip install pdfmerge2
+```
+
+## Cloning repository for development
 1. Clone repository
 2. Install requirements
    ```
    pip install -r requirements.txt
    ```
+   or
+   ```
+   poetry install
+   ```
 
 # Usage
 1. Pass only path to merge ALL pdf files in there
    ```
-   python merge.py /path/to/pdf/files
+   pdfmerge2 /path/to/pdf/files
    ```
 2. Pass path and file names to merge only them 
    ```
-   python merge.py /path/to/pdf/files -f file1 file2
+   pdfmerge2 /path/to/pdf/files -f file1 file2
    ```
 3. You can also pass output path
    ```
-   python merge.py /path/to/pdf/files -f file1 file2 -o /path/to/output
+   pdfmerge2 /path/to/pdf/files -f file1 file2 -o /path/to/output
    ```
-
-# Status
-Project is: _in progress_
 
 # Contact
 Created by [@Gasper3](https://github.com/Gasper3) - feel free to contact me!
