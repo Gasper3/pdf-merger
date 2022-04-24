@@ -28,4 +28,4 @@ def run():
     except Exception as e:
         print("Error occurred" if not is_debug else e)
     else:
-        print(f"Files merged into: {merger.merged_file_name}")
+        print(f"Files merged into: {merger.merged_file_path}")

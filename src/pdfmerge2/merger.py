@@ -8,24 +8,20 @@ from .exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
 
 class Merger:
     def __init__(self, path: Path | str, pdf_files: list[str], output: Path | str):
-        self.pdfWriter = PyPDF2.PdfFileWriter()
+        self.pdf_merger = PyPDF2.PdfFileMerger()
 
         self.path: Path = Path(path) if isinstance(path, str) else path
         self.pdf_files: list[str] = pdf_files
         self.output_path: Path = self._parse_output(output)
 
-        self.merged_file_name: str = ""
+        self.merged_file_path: Path | None = None
 
     def merge_files(self):
         self._validate()
 
         for file in self._get_files():
-            pdf_file = file.open(mode='rb')
-            pdf_reader = PyPDF2.PdfFileReader(pdf_file)
-
-            for nr in range(0, pdf_reader.numPages):
-                page = pdf_reader.getPage(nr)
-                self.pdfWriter.addPage(page)
+            with file.open(mode='rb') as pdf_file:
+                self.pdf_merger.append(fileobj=pdf_file)
 
         self._write_merged_files()
 
@@ -43,10 +39,11 @@ class Merger:
 
     def _write_merged_files(self):
         filename = datetime.now().strftime('%Y-%m-%d_%H%M%S_merged')
-        self.merged_file_name = f"{filename}.pdf"
-        pdf_output = open(self.output_path.joinpath(f"{filename}.pdf"), 'wb')
-        self.pdfWriter.write(pdf_output)
-        pdf_output.close()
+        output_path = self.output_path.joinpath(f"{filename}.pdf")
+        self.merged_file_path = output_path.resolve()
+
+        with open(output_path, 'wb') as pdf_output:
+            self.pdf_merger.write(fileobj=pdf_output)
 
     def _validate(self):
         if not self.path.exists():
