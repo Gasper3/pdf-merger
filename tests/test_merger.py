@@ -1,6 +1,11 @@
-from src.pdfmerge2.merger import Merger
-from .helpers import create_args, get_contents_names
+from pathlib import Path
+
+import pytest
 from PyPDF2 import PdfFileReader
+
+from pdfmerge2.exceptions import PathNotExistsError, FilesNotFoundInDirectoryError
+from pdfmerge2.merger import Merger
+from .helpers import create_args, get_contents_names
 
 
 def test_merge_from_path(resources_path):
