@@ -22,6 +22,6 @@ def remove_created_files(resources_path: Path):
         remove_item(item)
 
     for item in resources_path.iterdir():
-        if item.name in ["output", "pdf1.pdf", "pdf2.pdf"]:
+        if item.name in ["output", "pdf1.pdf", "pdf2.pdf", "pdf3.pdf"]:
             continue
         remove_item(item)
