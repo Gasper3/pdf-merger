@@ -44,3 +44,26 @@ def test_merge_specified_files(resources_path):
         reader = PdfFileReader(merged_file)
         assert 6 == reader.numPages
 
+
+def test_bad_path():
+    args = create_args(path=Path("asd/qwe"))
+    merger = Merger(**args)
+
+    with pytest.raises(PathNotExistsError):
+        merger.merge_files()
+
+
+def test_file_not_found():
+    args = create_args(pdf_files=['bad_file1', 'bad_file2'])
+    merger = Merger(**args)
+
+    with pytest.raises(FileNotFoundError):
+        merger.merge_files()
+
+
+def test_files_in_path_not_found(resources_path):
+    args = create_args(path=resources_path.joinpath("output"))
+    merger = Merger(**args)
+
+    with pytest.raises(FilesNotFoundInDirectoryError):
+        merger.merge_files()
