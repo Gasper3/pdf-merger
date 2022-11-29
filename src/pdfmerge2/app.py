@@ -15,7 +15,7 @@ def run():
 
     args = parser.parse_args()
 
-    merger = Merger(args.path, args.files, args.output)
+    merger = Merger(path=args.path, pdf_files=args.files, output=args.output)
 
     try:
         merger.merge_files()

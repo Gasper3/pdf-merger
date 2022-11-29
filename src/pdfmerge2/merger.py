@@ -7,7 +7,7 @@ from .exceptions import FilesNotFoundInDirectoryError, PathNotExistsError
 
 
 class Merger:
-    def __init__(self, path: Path | str, pdf_files: list[str], output: Path | str):
+    def __init__(self, pdf_files: list[str], output: Path | str, path: Path | str = None):
         self.pdf_merger = PyPDF2.PdfFileMerger()
 
         self.path: Path = Path(path) if isinstance(path, str) else path
@@ -46,12 +46,14 @@ class Merger:
             self.pdf_merger.write(fileobj=pdf_output)
 
     def _validate(self):
+        if not self.path:
+            return
         if not self.path.exists():
             raise PathNotExistsError(self.path)
         if not self.output_path.exists():
-            self.output_path.mkdir()
+            raise PathNotExistsError(self.output_path)
 
     def _parse_output(self, output_path) -> Path:
         if output_path is None:
-            return self.path
+            return Path()
         return Path(output_path) if isinstance(output_path, str) else output_path
